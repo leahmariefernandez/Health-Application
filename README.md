@@ -16,10 +16,8 @@ and medical professionals efficient.
 ##User Stories
 
 As a **patient** you will be able to:
-- Add or remove to list of your symptoms
-- Book an appointment with your doctor or,
-- Book a COVID-19 test based off your symptoms
-
-As a **Medical Provider** you will be able to:
-- Make a new booking
-- Receive the patient's personal information and their symptoms
+- Add vaccination status to health records
+- View vaccination status
+- Add symptoms to list of symptoms
+- Book an appointment with doctor or,
+- Book a COVID-19 test, based off symptoms
