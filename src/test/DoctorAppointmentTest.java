@@ -60,5 +60,7 @@ public class DoctorAppointmentTest {
         testDoctorAppointment.makeNewBooking(jun,15);
         assertFalse(testDoctorAppointment.verifyBooking(jun,11));
         assertFalse(testDoctorAppointment.confirmedBooking("Jun",11));
+        assertTrue(testDoctorAppointment.verifyBooking(jun,15));
+        assertTrue(testDoctorAppointment.confirmedBooking("Jun",15));
     }
 }

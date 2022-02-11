@@ -59,10 +59,12 @@ public class CovidTestTest {
         assertTrue(testCovidTest.verifyCovidBooking(testPatient,11));
         assertTrue(testCovidTest.confirmedCovidBooking("Leah",11));
 
-        Patient sahib = new Patient("Sahib",0,15);
+        Patient sahib = new Patient("Sahib",0,0);
         testCovidTest.makeNewCovidBooking(sahib,15);
         assertFalse(testCovidTest.verifyCovidBooking(sahib,11));
         assertFalse(testCovidTest.confirmedCovidBooking("Sahib",11));
+        assertTrue(testCovidTest.verifyCovidBooking(sahib,15));
+        assertTrue(testCovidTest.verifyCovidBooking(sahib,15));
     }
 
 }
