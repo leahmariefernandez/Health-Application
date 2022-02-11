@@ -27,13 +27,12 @@ public class CovidTest {
     // EFFECTS: returns true if Patient is found at booking time
     public boolean verifyCovidBooking(Patient p, int bookingTime) {
         Patient bookedCustomer = bookings.get(bookingTime);
-        if (bookedCustomer == null) {
-            return false;
-        }
         if (bookedCustomer.getName().equals(p.getName())) {
             System.out.println("See you then!");
+            return true;
+        } else {
+            return false;
         }
-        return true;
     }
 
     // returns true if Patient is booked at that time

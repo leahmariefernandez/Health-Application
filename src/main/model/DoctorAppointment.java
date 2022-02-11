@@ -27,13 +27,12 @@ public class DoctorAppointment {
     // EFFECTS: returns true if patient is found at the timeslot
     public boolean verifyBooking(Patient p, int bookingTime) {
         Patient bookedCustomer = bookings.get(bookingTime);
-        if (bookedCustomer == null) {
-            return false;
-        }
         if (bookedCustomer.getName().equals(p.getName())) {
             System.out.println("See you then!");
+            return true;
+        } else {
+            return false;
         }
-        return true;
     }
 
     // EFFECTS: returns true if patient is booking at the booking time

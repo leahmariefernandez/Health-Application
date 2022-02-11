@@ -49,4 +49,16 @@ public class DoctorAppointmentTest {
         assertTrue(testDoctorAppointment.verifyBooking(newPatient,11));
         assertTrue(testDoctorAppointment.verifyBooking(newPatient,11));
     }
+
+    @Test
+    void testBookingWithFalseVerification() {
+        testDoctorAppointment.makeNewBooking(testPatient,11);
+        assertTrue(testDoctorAppointment.verifyBooking(testPatient,11));
+        assertTrue(testDoctorAppointment.confirmedBooking("Leah",11));
+
+        Patient jun = new Patient("Jun",0,15);
+        testDoctorAppointment.makeNewBooking(jun,15);
+        assertFalse(testDoctorAppointment.verifyBooking(jun,11));
+        assertFalse(testDoctorAppointment.confirmedBooking("Jun",11));
+    }
 }

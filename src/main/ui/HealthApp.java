@@ -103,7 +103,7 @@ public class HealthApp {
         Symptom one = first;
         Symptom two = second;
         Symptom three = third;
-        System.out.println("What is your first symptom? (Enter 'none' if you don't have any)");
+        System.out.println("What is your first symptom?");
         String first = input.nextLine();
         one.convertSymptomName(first);
         selected.addToSearch(one);

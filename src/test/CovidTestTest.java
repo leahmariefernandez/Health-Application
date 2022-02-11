@@ -3,7 +3,9 @@ import model.Patient;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.util.ArrayList;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class CovidTestTest {
@@ -50,4 +52,17 @@ public class CovidTestTest {
         assertTrue(testCovidTest.verifyCovidBooking(newPatient,14));
         assertTrue(testCovidTest.verifyCovidBooking(newPatient,14));
     }
+
+    @Test
+    void testBookingWithFalseVerification() {
+        testCovidTest.makeNewCovidBooking(testPatient,11);
+        assertTrue(testCovidTest.verifyCovidBooking(testPatient,11));
+        assertTrue(testCovidTest.confirmedCovidBooking("Leah",11));
+
+        Patient sahib = new Patient("Sahib",0,15);
+        testCovidTest.makeNewCovidBooking(sahib,15);
+        assertFalse(testCovidTest.verifyCovidBooking(sahib,11));
+        assertFalse(testCovidTest.confirmedCovidBooking("Sahib",11));
+    }
+
 }
