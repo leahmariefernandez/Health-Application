@@ -1,17 +1,17 @@
 package model;
 
 
+
 public class Patient {
 
-    private String name;
-    // private int age;
+    private final String name;
     private Integer vaccinationRecord;
     private int bookedTime;
 
-    public Patient(String name, Integer vaccinationRecord) {
+    public Patient(String name, Integer vaccinationRecord,int bookedTime) {
         this.name = name;
         this.vaccinationRecord = vaccinationRecord;
-        this.bookedTime = 0;
+        this.bookedTime = bookedTime;
     }
 
     public void updatedVaccinationRecord(Integer doses) {
@@ -31,21 +31,11 @@ public class Patient {
         return vaccinationRecord;
     }
 
-
     // setters
     public void setBookedTime(int time) {
         bookedTime = time;
     }
 
-    public void printName() {
-        System.out.println("" + name + "");
-    }
-
-    // EFFECTS: returns the bookedTime of this customers appointment
-    public int confirmBooking() {
-        System.out.println(name + " is booked at " + bookedTime);
-        return bookedTime;
-    }
 
 
 }
