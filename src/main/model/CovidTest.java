@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 
 // code copied from HairSalon3
+// class that books a Covid test
 public class CovidTest {
 
     private final ArrayList<Patient> bookings;
@@ -35,7 +36,7 @@ public class CovidTest {
         }
     }
 
-    // returns true if Patient is booked at that time
+    // EFFECTS: returns true if Patient is booked at that time
     public boolean confirmedCovidBooking(String p, int bookingTime) {
         Patient bookedPatient = bookings.get(bookingTime);
         String bookedPatientName = bookedPatient.getName();

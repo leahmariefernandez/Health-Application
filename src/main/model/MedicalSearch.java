@@ -2,7 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
-
+// a class that adds symptoms to the list and analyzes what it contains
 public class MedicalSearch {
     private final ArrayList<Symptom> symptoms;
 

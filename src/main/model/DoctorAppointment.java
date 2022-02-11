@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 
 // code copied from HairSalon3
+// a class that books a doctors appointment
 public class DoctorAppointment {
 
     private final ArrayList<Patient> bookings;

@@ -1,7 +1,6 @@
 package model;
 
-
-
+// a class representing a patient; their name, vaccination record and booked time
 public class Patient {
 
     private final String name;
@@ -14,6 +13,8 @@ public class Patient {
         this.bookedTime = bookedTime;
     }
 
+    // MODIFIES: this
+    // EFFECTS: updates their vaccination record
     public void updatedVaccinationRecord(Integer doses) {
         vaccinationRecord = doses;
     }

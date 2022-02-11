@@ -1,5 +1,6 @@
 package model;
 
+// a class representing symptoms
 public class Symptom {
     private String symptomName;
 
