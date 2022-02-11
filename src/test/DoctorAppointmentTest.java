@@ -33,9 +33,9 @@ public class DoctorAppointmentTest {
 
     @Test
     void testLatestMakeNewBooking() {
-        testDoctorAppointment.makeNewBooking(testPatient,12);
-        assertTrue(testDoctorAppointment.verifyBooking(testPatient,12));
-        assertTrue(testDoctorAppointment.confirmedBooking("Leah",12));
+        testDoctorAppointment.makeNewBooking(testPatient,15);
+        assertTrue(testDoctorAppointment.verifyBooking(testPatient,15));
+        assertTrue(testDoctorAppointment.confirmedBooking("Leah",15));
     }
 
     @Test

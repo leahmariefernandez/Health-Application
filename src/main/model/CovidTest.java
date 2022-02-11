@@ -2,19 +2,20 @@ package model;
 
 import java.util.ArrayList;
 
-// code copied from HairSalonStart4
+// code copied from HairSalon3
 public class CovidTest {
 
     private final ArrayList<Patient> bookings;
 
     public CovidTest() {
-        int maxTime = 22;
+        int maxTime = 19;
         bookings = new ArrayList<>();
         for (int i = 0; i <= maxTime; i++) {
             bookings.add(i, null);
         }
     }
 
+    // REQUIRES: bookedTime must be between 6-19
     // MODIFIES: this and Patient
     // EFFECTS: books the Patient into the timeslot
     public void makeNewCovidBooking(Patient p, int bookingTime) {

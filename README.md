@@ -16,8 +16,8 @@ and medical professionals efficient.
 ##User Stories
 
 As a **patient** you will be able to:
-- Add vaccination status to health records
-- View vaccination status
+- Update vaccination status
+- View current vaccination status
 - Add symptoms to Medical Analyzer
 - Book an appointment with doctor or,
 - Book a COVID-19 test, based off symptoms
@@ -25,4 +25,4 @@ As a **patient** you will be able to:
 *Code Credit to HairSalon and Teller*
 
 
-*Link to soure repo: https://github.com/UBCx-Software-Construction/data-abstraction-lecture-starters.git*
+*Link to soure repo: https://github.com/UBCx-Software-Construction/control-and-data-flow-lecture-starters.git*

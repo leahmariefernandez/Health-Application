@@ -1,5 +1,4 @@
 import model.CovidTest;
-import model.DoctorAppointment;
 import model.Patient;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
