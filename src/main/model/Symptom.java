@@ -26,7 +26,7 @@ public class Symptom implements Writable {
     }
 
     // Code credit to JsonSerializationDemo
-    // EFFECTS: constructs json object symptoms:
+    // EFFECTS: returns this object as a JSON object
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("symptoms:", symptomName);

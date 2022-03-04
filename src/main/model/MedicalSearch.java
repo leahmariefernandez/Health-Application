@@ -48,7 +48,7 @@ public class MedicalSearch implements Writable {
     }
 
     // Code credit to JsonSerializationDemo
-    // EFFECTS: constructs json object symptoms
+    // EFFECTS: returns this object as a JSON object
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
@@ -57,7 +57,7 @@ public class MedicalSearch implements Writable {
     }
 
     // Code credit to JsonSerializationDemo
-    // EFFECTS: constructs json array and adds json object symptoms to it
+    // EFFECTS: returns this object as a JSON Array, adds symptoms as JSON Objects
     private JSONArray symptomsToJson() {
         JSONArray jsonArray = new JSONArray();
 
