@@ -1,8 +1,8 @@
-package persistence;
-
 import model.MedicalSearch;
 import model.Symptom;
 import org.junit.jupiter.api.Test;
+import persistence.JsonReader;
+import persistence.JsonTest;
 
 import java.io.IOException;
 import java.util.List;
