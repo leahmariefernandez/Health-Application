@@ -5,19 +5,28 @@ import model.Patient;
 import model.MedicalSearch;
 import model.DoctorAppointment;
 import model.Symptom;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class HealthApp {
-    private MedicalSearch medicalSearch;
+    private MedicalSearch medicalSearch = new MedicalSearch();
     private Patient vaccinationRecord;
     private Scanner input;
     private DoctorAppointment doctorAppointment;
     private CovidTest covidTest;
-    private Symptom first;
-    private Symptom second;
-    private Symptom third;
+    private Symptom first = new Symptom();
+    private Symptom second = new Symptom();
+    private Symptom third = new Symptom();
+    private static final String JSON_STORE = "./data/workroom.json";
+    private JsonReader jsonReader;
+    private JsonWriter jsonWriter;
 
     // EFFECTS: run the health application
     public HealthApp() {
@@ -51,14 +60,15 @@ public class HealthApp {
     // MODIFIES: this
     // EFFECTS: initializes patient records
     private void initializePatientRecords() {
-        this.medicalSearch = new MedicalSearch();
         this.vaccinationRecord = new Patient("Leah", 0, 0);
         this.doctorAppointment = new DoctorAppointment();
         this.covidTest = new CovidTest();
-        this.first = new Symptom();
-        this.second = new Symptom();
-        this.third = new Symptom();
+        //this.first = new Symptom();
+       // this.second = new Symptom();
+      //  this.third = new Symptom();
         input = new Scanner(System.in);
+        jsonReader = new JsonReader(JSON_STORE);
+        jsonWriter = new JsonWriter(JSON_STORE);
     }
 
     // MODIFIES: this
@@ -70,6 +80,12 @@ public class HealthApp {
             insertSymptoms();
         } else if (command.equals("v")) {
             viewVaccinationRecord();
+        } else if (command.equals("save")) {
+            saveWorkRoom();
+        } else if (command.equals("load")) {
+            loadWorkRoom();
+        } else if (command.equals("print")) {
+            printSymptoms();
         } else {
             System.out.println("Input not valid. Please try again!");
         }
@@ -81,6 +97,9 @@ public class HealthApp {
         System.out.println("Type u to update your Vaccination Record");
         System.out.println("Type s to enter your symptoms");
         System.out.println("Type v to view your Vaccination Record");
+        System.out.println("Type save to save");
+        System.out.println("Type load to load symptoms");
+        System.out.println("Type print to print symptoms");
         System.out.println("Type q to quit");
     }
 
@@ -138,6 +157,7 @@ public class HealthApp {
         doctorAppointment.makeNewBooking(vaccinationRecord, time);
         doctorAppointment.verifyBooking(vaccinationRecord, time);
         doctorAppointment.confirmedBooking(vaccinationRecord.getName(), time);
+        runApp();
     }
 
     // MODIFIES: this, patient, and CovidAppointment
@@ -148,6 +168,42 @@ public class HealthApp {
         covidTest.makeNewCovidBooking(vaccinationRecord, time);
         covidTest.verifyCovidBooking(vaccinationRecord, time);
         covidTest.confirmedCovidBooking(vaccinationRecord.getName(), time);
+        runApp();
+
     }
+
+    // EFFECTS: saves the workroom to file
+    private void saveWorkRoom() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(medicalSearch);
+            jsonWriter.close();
+            System.out.println("Saved Symptoms to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads workroom from file
+    private void loadWorkRoom() {
+        try {
+            medicalSearch = jsonReader.read();
+            System.out.println("Loaded from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
+    }
+
+
+    // EFFECTS: prints all the thingies in workroom to the console
+    private void printSymptoms() {
+        List<Symptom> symptoms = medicalSearch.getSymptoms();
+
+        for (Symptom t : symptoms) {
+            System.out.println(t.getSymptomName());
+        }
+    }
+
 }
 

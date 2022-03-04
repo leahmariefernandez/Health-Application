@@ -1,4 +1,4 @@
-# My Personal Project
+# Health Application
 
 The application will  allow patients to add or remove 
 their current symptoms to a list of their own medical symptoms.
@@ -21,6 +21,8 @@ As a **patient** you will be able to:
 - Add symptoms to Medical Analyzer
 - Book an appointment with doctor or,
 - Book a COVID-19 test, based off symptoms
+- Save Symptom List to File
+- Load Symptom List to File
 
 *Code Credit to HairSalon and Teller*
 

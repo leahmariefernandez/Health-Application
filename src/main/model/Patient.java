@@ -7,7 +7,9 @@ public class Patient {
     private Integer vaccinationRecord;
     private int bookedTime;
 
-    public Patient(String name, Integer vaccinationRecord,int bookedTime) {
+    // MODIFIES: this
+    // EFFECTS: patient is a string, vaccination record and booked time
+    public Patient(String name, int vaccinationRecord,int bookedTime) {
         this.name = name;
         this.vaccinationRecord = vaccinationRecord;
         this.bookedTime = bookedTime;

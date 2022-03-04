@@ -25,6 +25,8 @@ public class CovidTest {
         p.setBookedTime(bookingTime);
     }
 
+
+
     // EFFECTS: returns true if Patient is found at booking time
     public boolean verifyCovidBooking(Patient p, int bookingTime) {
         Patient bookedCustomer = bookings.get(bookingTime);
@@ -43,5 +45,16 @@ public class CovidTest {
         return bookedPatientName.equals(p);
 
     }
+
+    //MODIFIES: this and Customer
+    //EFFECTS:  changes the customer booked in the bookings, and let's the Customer know the new booking time.
+//    public void changeCovidBooking(Patient patient, int newTime) {
+//        int bookedTime = patient.getBookingTime();
+//        System.out.print(patient.getName() + "'s time is changing from " + bookedTime);
+//        System.out.println(" to " + newTime);
+//        bookings.set(bookedTime, null);
+//        bookings.set(newTime, patient);
+//        patient.setBookedTime(newTime);
+//    }
 
 }

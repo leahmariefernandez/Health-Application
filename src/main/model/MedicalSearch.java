@@ -1,11 +1,19 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 // a class that adds symptoms to the list and analyzes what it contains
-public class MedicalSearch {
+public class MedicalSearch implements Writable {
     private final ArrayList<Symptom> symptoms;
 
+    // MODFIES: this
+    // EFFECTS: symptoms is a new ArrayList
     public MedicalSearch() {
         this.symptoms = new ArrayList<>();
     }
@@ -39,5 +47,26 @@ public class MedicalSearch {
     // getter
     public ArrayList<Symptom> getSymptoms() {
         return symptoms;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("symptoms", symptomsToJson());
+        return json;
+    }
+
+    private JSONArray symptomsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Symptom t : symptoms) {
+            jsonArray.put(t.toJson());
+        }
+        return jsonArray;
+    }
+
+    // EFFECTS: returns an unmodifiable list of thingies in this workroom
+    public List<Symptom> grabSymptoms() {
+        return Collections.unmodifiableList(symptoms);
     }
 }
