@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class MedicalSearch implements Writable {
     public final ArrayList<Symptom> symptoms;
 
-    // MODFIES: this
+    // MODIFIES: this
     // EFFECTS: symptoms is a new ArrayList
     public MedicalSearch() {
         this.symptoms = new ArrayList<>();
@@ -48,6 +48,7 @@ public class MedicalSearch implements Writable {
     }
 
     // Code credit to JsonSerializationDemo
+    // EFFECTS: constructs json object symptoms
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
@@ -56,6 +57,7 @@ public class MedicalSearch implements Writable {
     }
 
     // Code credit to JsonSerializationDemo
+    // EFFECTS: constructs json array and adds json object symptoms to it
     private JSONArray symptomsToJson() {
         JSONArray jsonArray = new JSONArray();
 
