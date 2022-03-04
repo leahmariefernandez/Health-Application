@@ -1,4 +1,5 @@
 package persistence;
+
 import model.MedicalSearch;
 import org.json.JSONObject;
 

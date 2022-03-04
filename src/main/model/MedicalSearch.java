@@ -5,8 +5,6 @@ import org.json.JSONObject;
 import persistence.Writable;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 // a class that adds symptoms to the list and analyzes what it contains
 public class MedicalSearch implements Writable {
