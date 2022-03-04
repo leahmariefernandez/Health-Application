@@ -10,7 +10,7 @@ import java.util.List;
 
 // a class that adds symptoms to the list and analyzes what it contains
 public class MedicalSearch implements Writable {
-    private final ArrayList<Symptom> symptoms;
+    public final ArrayList<Symptom> symptoms;
 
     // MODFIES: this
     // EFFECTS: symptoms is a new ArrayList
@@ -49,6 +49,7 @@ public class MedicalSearch implements Writable {
         return symptoms;
     }
 
+    // Code credit to JsonSerializationDemo
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
@@ -56,6 +57,7 @@ public class MedicalSearch implements Writable {
         return json;
     }
 
+    // Code credit to JsonSerializationDemo
     private JSONArray symptomsToJson() {
         JSONArray jsonArray = new JSONArray();
 
@@ -65,8 +67,5 @@ public class MedicalSearch implements Writable {
         return jsonArray;
     }
 
-    // EFFECTS: returns an unmodifiable list of thingies in this workroom
-    public List<Symptom> grabSymptoms() {
-        return Collections.unmodifiableList(symptoms);
-    }
+
 }
