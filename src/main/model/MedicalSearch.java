@@ -16,6 +16,7 @@ public class MedicalSearch implements Writable {
         this.symptoms = new ArrayList<>();
     }
 
+
     // MODIFIES: this
     // EFFECTS: add symptom to list of symptoms
     public void addToSearch(Symptom symptomName) {
@@ -52,7 +53,7 @@ public class MedicalSearch implements Writable {
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
-        json.put("symptoms", symptomsToJson());
+        json.put("Medical Search", symptomsToJson());
         return json;
     }
 
@@ -66,6 +67,4 @@ public class MedicalSearch implements Writable {
         }
         return jsonArray;
     }
-
-
 }

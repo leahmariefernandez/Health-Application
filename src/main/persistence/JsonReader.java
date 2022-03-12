@@ -1,5 +1,6 @@
 package persistence;
 
+import model.Patient;
 import model.Symptom;
 import model.MedicalSearch;
 
@@ -42,9 +43,13 @@ public class JsonReader {
 
     // EFFECTS: analyzes workroom from JSON object and returns it
     private MedicalSearch parseWorkRoom(JSONObject jsonObject) {
-       // String symptoms = jsonObject.getString("symptoms");
+
         MedicalSearch search = new MedicalSearch();
+        int record = jsonObject.getInt("vaccination record:");
+        int bookedTime = jsonObject.getInt("booking time:");
+
         addSymptoms(search, jsonObject);
+
         return search;
     }
 
@@ -66,5 +71,17 @@ public class JsonReader {
         symptom.convertSymptomName(symptoms);
         wr.addToSearch(symptom);
     }
+
+    // MODIFIES: wr
+    // EFFECTS: analyzes patient from JSON object and adds it to workroom
+//    private void addVaccination(Patient wr, JSONObject jsonObject) {
+//        int record = jsonObject.getInt("vaccination record:");
+//        int bookedTime = jsonObject.getInt("booking time:");
+//        Patient patient = new Patient("Leah", record, bookedTime);
+//        wr.updatedVaccinationRecord(record);
+//        wr.setBookedTime(bookedTime);
+//    }
+
+
 }
 

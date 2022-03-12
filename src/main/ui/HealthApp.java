@@ -176,7 +176,7 @@ public class HealthApp {
     private void saveWorkRoom() {
         try {
             jsonWriter.open();
-            jsonWriter.write(medicalSearch);
+            jsonWriter.write(medicalSearch, vaccinationRecord);
             jsonWriter.close();
             System.out.println("Saved Symptoms to " + JSON_STORE);
         } catch (FileNotFoundException e) {
