@@ -16,8 +16,8 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class HealthApp {
-    private MedicalSearch medicalSearch = new MedicalSearch();
-    private Patient vaccinationRecord;
+    //private MedicalSearch medicalSearch = new MedicalSearch();
+    private Patient vaccinationRecord = new Patient("Leah", 0, 0);
     private Scanner input;
     private DoctorAppointment doctorAppointment;
     private CovidTest covidTest;
@@ -60,7 +60,7 @@ public class HealthApp {
     // MODIFIES: this
     // EFFECTS: initializes patient records
     private void initializePatientRecords() {
-        this.vaccinationRecord = new Patient("Leah", 0, 0);
+       // this.vaccinationRecord = new Patient("Leah", 0, 0);
         this.doctorAppointment = new DoctorAppointment();
         this.covidTest = new CovidTest();
         //this.first = new Symptom();
@@ -118,7 +118,7 @@ public class HealthApp {
     // MODIFIES: this and symptom
     // EFFECTS: insert symptoms into list of symptoms
     private void insertSymptoms() {
-        MedicalSearch selected = medicalSearch;
+        Patient selected = vaccinationRecord;
         Symptom one = first;
         Symptom two = second;
         Symptom three = third;
@@ -176,7 +176,7 @@ public class HealthApp {
     private void saveWorkRoom() {
         try {
             jsonWriter.open();
-            jsonWriter.write(medicalSearch, vaccinationRecord);
+            jsonWriter.write(vaccinationRecord);
             jsonWriter.close();
             System.out.println("Saved Symptoms to " + JSON_STORE);
         } catch (FileNotFoundException e) {
@@ -188,7 +188,7 @@ public class HealthApp {
     // EFFECTS: loads workroom from file
     private void loadWorkRoom() {
         try {
-            medicalSearch = jsonReader.read();
+            vaccinationRecord = jsonReader.read();
             System.out.println("Loaded from " + JSON_STORE);
         } catch (IOException e) {
             System.out.println("Unable to read from file: " + JSON_STORE);
@@ -198,11 +198,14 @@ public class HealthApp {
 
     // EFFECTS: prints all the thingies in workroom to the console
     private void printSymptoms() {
-        List<Symptom> symptoms = medicalSearch.getSymptoms();
+        List<Symptom> symptoms = vaccinationRecord.getSymptoms();
 
         for (Symptom t : symptoms) {
-            System.out.println(t.getSymptomName());
+            System.out.println("symptom: " + t.getSymptomName());
         }
+
+        System.out.println("vaccination record: " + vaccinationRecord.getVaccinationRecord());
+        System.out.println("booking time: " + vaccinationRecord.getBookingTime());
     }
 
 }

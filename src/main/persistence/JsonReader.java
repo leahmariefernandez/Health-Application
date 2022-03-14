@@ -24,7 +24,7 @@ public class JsonReader {
 
     // EFFECTS: reads workroom from file and returns it;
     // throws IOException if an error occurs reading data from file
-    public MedicalSearch read() throws IOException {
+    public Patient read() throws IOException {
         String jsonData = readFile(source);
         JSONObject jsonObject = new JSONObject(jsonData);
         return parseWorkRoom(jsonObject);
@@ -42,11 +42,11 @@ public class JsonReader {
     }
 
     // EFFECTS: analyzes workroom from JSON object and returns it
-    private MedicalSearch parseWorkRoom(JSONObject jsonObject) {
-
-        MedicalSearch search = new MedicalSearch();
+    private Patient parseWorkRoom(JSONObject jsonObject) {
         int record = jsonObject.getInt("vaccination record:");
         int bookedTime = jsonObject.getInt("booking time:");
+
+        Patient search = new Patient("Leah", record, bookedTime);
 
         addSymptoms(search, jsonObject);
 
@@ -55,8 +55,8 @@ public class JsonReader {
 
     // MODIFIES: wr
     // EFFECTS: analyzes symptoms from JSON object and adds them to workroom
-    private void addSymptoms(MedicalSearch wr, JSONObject jsonObject) {
-        JSONArray jsonArray = jsonObject.getJSONArray("symptoms");
+    private void addSymptoms(Patient wr, JSONObject jsonObject) {
+        JSONArray jsonArray = jsonObject.getJSONArray("Symptoms");
         for (Object json : jsonArray) {
             JSONObject next = (JSONObject) json;
             addSymptom(wr, next);
@@ -65,22 +65,13 @@ public class JsonReader {
 
     // MODIFIES: wr
     // EFFECTS: analyzes symptom from JSON object and adds it to workroom
-    private void addSymptom(MedicalSearch wr, JSONObject jsonObject) {
+    private void addSymptom(Patient wr, JSONObject jsonObject) {
         String symptoms = jsonObject.getString("symptoms:");
         Symptom symptom = new Symptom();
         symptom.convertSymptomName(symptoms);
         wr.addToSearch(symptom);
     }
 
-    // MODIFIES: wr
-    // EFFECTS: analyzes patient from JSON object and adds it to workroom
-//    private void addVaccination(Patient wr, JSONObject jsonObject) {
-//        int record = jsonObject.getInt("vaccination record:");
-//        int bookedTime = jsonObject.getInt("booking time:");
-//        Patient patient = new Patient("Leah", record, bookedTime);
-//        wr.updatedVaccinationRecord(record);
-//        wr.setBookedTime(bookedTime);
-//    }
 
 
 }

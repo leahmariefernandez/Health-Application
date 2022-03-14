@@ -29,10 +29,10 @@ public class JsonWriter {
 
     // MODIFIES: this
     // EFFECTS: writes JSON representation of workroom to file
-    public void write(MedicalSearch wr, Patient patient) {
-        JSONObject json = wr.toJson();
+    public void write(Patient patient) {
+       // JSONObject json = patient.toJson();
         JSONObject jsonObject = patient.toJson();
-        saveToFile(json.toString(TAB));
+       // saveToFile(jsonObject.toString(TAB));
         saveToFile(jsonObject.toString(TAB));
     }
 

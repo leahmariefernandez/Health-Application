@@ -1,8 +1,9 @@
-{"Medical Search": [
-     {"symptoms:": "lol"},
-     {"symptoms:": "lol"},
-     {"symptoms:": "lol"}
-]}{
-     "booking time:": 0,
-     "vaccination record:": 0
+{
+     "booking time:": 11,
+     "vaccination record:": 2,
+     "Symptoms": [
+          {"symptoms:": "lol"},
+          {"symptoms:": "lol"},
+          {"symptoms:": "lol"}
+     ]
 }
