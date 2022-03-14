@@ -2,7 +2,7 @@ package ui;
 
 import model.CovidTest;
 import model.Patient;
-import model.MedicalSearch;
+//import model.MedicalSearch;
 import model.DoctorAppointment;
 import model.Symptom;
 import persistence.JsonReader;

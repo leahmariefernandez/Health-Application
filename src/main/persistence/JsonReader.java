@@ -2,7 +2,7 @@ package persistence;
 
 import model.Patient;
 import model.Symptom;
-import model.MedicalSearch;
+//import model.MedicalSearch;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;

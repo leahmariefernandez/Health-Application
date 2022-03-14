@@ -1,4 +1,8 @@
-{"symptoms": [
-     {"symptoms:": "cough"},
-     {"symptoms:": "headache"}
-]}
+{
+     "booking time:": 0,
+     "vaccination record:": 0,
+     "Symptoms": [
+          {"symptoms:": "cough"},
+          {"symptoms:": "headache"}
+     ]
+}

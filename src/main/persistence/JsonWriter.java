@@ -1,6 +1,6 @@
 package persistence;
 
-import model.MedicalSearch;
+//import model.MedicalSearch;
 import model.Patient;
 import org.json.JSONObject;
 
