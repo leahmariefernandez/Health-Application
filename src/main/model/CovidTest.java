@@ -8,6 +8,8 @@ public class CovidTest {
 
     private final ArrayList<Patient> bookings;
 
+    // MODIFIES: this
+    // EFFECTS: adds booking to booking list
     public CovidTest() {
         int maxTime = 19;
         bookings = new ArrayList<>();

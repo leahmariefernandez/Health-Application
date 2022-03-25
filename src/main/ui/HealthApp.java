@@ -15,8 +15,9 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
+// a class that runs the ui
+
 public class HealthApp {
-    //private MedicalSearch medicalSearch = new MedicalSearch();
     private Patient vaccinationRecord = new Patient("Leah", 0, 0);
     private Scanner input;
     private DoctorAppointment doctorAppointment;
@@ -172,7 +173,7 @@ public class HealthApp {
 
     }
 
-    // EFFECTS: saves the workroom to file
+    // EFFECTS: saves the information to file
     private void saveWorkRoom() {
         try {
             jsonWriter.open();
@@ -185,7 +186,7 @@ public class HealthApp {
     }
 
     // MODIFIES: this
-    // EFFECTS: loads workroom from file
+    // EFFECTS: loads information from file
     private void loadWorkRoom() {
         try {
             vaccinationRecord = jsonReader.read();
@@ -196,7 +197,7 @@ public class HealthApp {
     }
 
 
-    // EFFECTS: prints all the thingies in workroom to the console
+    // EFFECTS: prints all the informations in workroom to the console
     private void printSymptoms() {
         List<Symptom> symptoms = vaccinationRecord.getSymptoms();
 

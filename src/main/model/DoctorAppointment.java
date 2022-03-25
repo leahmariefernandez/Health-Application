@@ -8,6 +8,8 @@ public class DoctorAppointment {
 
     private final ArrayList<Patient> bookings;
 
+    // MODIFIES: this
+    // EFFECTS: adds booking to booking list
     public DoctorAppointment() {
         int maxTime = 15;
         bookings = new ArrayList<>();

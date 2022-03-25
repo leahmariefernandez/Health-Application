@@ -11,6 +11,9 @@ import java.awt.event.ActionEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+// a class that runs the gui
+// code credit to AlarmControllerUI.java
+
 public class HealthGUI extends JFrame {
     private static final int WIDTH = 700;
     private static final int HEIGHT = 700;
@@ -25,7 +28,8 @@ public class HealthGUI extends JFrame {
     private JDesktopPane desktop;
     private JInternalFrame controlPanel;
 
-
+    // MODIFIES: this
+    // EFFECTS: initializes objects
     public HealthGUI() {
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
@@ -57,10 +61,13 @@ public class HealthGUI extends JFrame {
         setVisible(true);
     }
 
+    // EFFECTS: runs the GUI
     public static void main(String[] args) {
         new HealthGUI();
     }
 
+    // MODIFIES: this
+    // EFFECTS: runs the buttom menu
     private void addButtonMenu() {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(3, 2));
@@ -71,16 +78,19 @@ public class HealthGUI extends JFrame {
         buttonPanel.add(new JButton(new VaccinationRecord()));
         buttonPanel.add(new JButton(new Load()));
 
-
         controlPanel.add(buttonPanel, BorderLayout.WEST);
     }
 
+    // MODIFIES: this
+    // EFFECTS: centres the panel on the screen
     private void centreOnScreen() {
         int width = Toolkit.getDefaultToolkit().getScreenSize().width;
         int height = Toolkit.getDefaultToolkit().getScreenSize().height;
         setLocation((width - getWidth()) / 2, (height - getHeight()) / 2);
     }
 
+    // MODIFIES: this
+    // EFFECTS: adds symptoms to the patient
     private class AddSymptom extends AbstractAction {
         AddSymptom() {
             super("Add Symptoms");
@@ -88,8 +98,6 @@ public class HealthGUI extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent evt) {
-
-
             String symptom = JOptionPane.showInputDialog(null,
                     " Enter first symptom",
                     "Enter Symptom",
@@ -121,8 +129,11 @@ public class HealthGUI extends JFrame {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS:  option pane to enter a booking time
     private class MedicalSearch extends AbstractAction {
 
+        // EFFECTS: constructor
         MedicalSearch() {
             super("Medical Search");
         }
@@ -146,8 +157,10 @@ public class HealthGUI extends JFrame {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: loads the information from file
     public class Load extends AbstractAction {
-
+        // EFFECTS: constructor
         Load() {
             super("Load");
         }
@@ -167,8 +180,10 @@ public class HealthGUI extends JFrame {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: saves information from file
     public class Save extends AbstractAction {
-
+        // EFFECTS: constructor
         Save() {
             super("Save");
         }
@@ -190,32 +205,33 @@ public class HealthGUI extends JFrame {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: prints the information on the screen
     private class MedicalRecord extends AbstractAction {
 
+        // EFFECTS: constructor
         MedicalRecord() {
             super("Medical Record");
         }
 
         @Override
         public void actionPerformed(ActionEvent evt) {
-            //String str;
-
             String str = "Medical Record: \n";
             for (Symptom d : patient.getSymptoms()) {
                 str += "Symptoms:" + d.getSymptomName() + " \n";
             }
-
             str += "Booking time: " + patient.getBookingTime() + "\n";
             str += "Vaccination record: " + patient.getVaccinationRecord() + " doses";
             ImageIcon icon = new ImageIcon("./data/healthrecord.png");
             JOptionPane.showMessageDialog(null, str, "Symptoms",
                     JOptionPane.PLAIN_MESSAGE,icon);
-
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: adds vaccination record
     private class VaccinationRecord extends AbstractAction {
-
+        // EFFECTS: constructor
         VaccinationRecord() {
             super("Vaccination Record");
         }
@@ -229,6 +245,4 @@ public class HealthGUI extends JFrame {
             patient.setBookedTime(Integer.parseInt(doses));
         }
     }
-
-
 }
