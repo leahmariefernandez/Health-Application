@@ -24,7 +24,7 @@ public class HealthApp {
     private Symptom first = new Symptom();
     private Symptom second = new Symptom();
     private Symptom third = new Symptom();
-    private static final String JSON_STORE = "./data/workroom.json";
+    private static final String JSON_STORE = "./data/medicalsearch.json";
     private JsonReader jsonReader;
     private JsonWriter jsonWriter;
 

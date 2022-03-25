@@ -24,7 +24,7 @@ As a **patient** you will be able to:
 - Save Symptom List to File
 - Load Symptom List to File
 
-*Code Credit to HairSalon, Teller, andJsonSerializationDemo*
+*Code Credit to HairSalon, Teller, andJsonSerializationDemo, and Alarm System*
 
 
 *Link to soure repo: https://github.com/UBCx-Software-Construction/control-and-data-flow-lecture-starters.git*
