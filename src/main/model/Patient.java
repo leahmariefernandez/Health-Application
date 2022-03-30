@@ -28,6 +28,8 @@ public class Patient implements Writable {
     // EFFECTS: updates their vaccination record
     public void updatedVaccinationRecord(Integer doses) {
         vaccinationRecord = doses;
+        EventLog.getInstance().logEvent(
+                new Event("Vaccination Record has been recorded"));
     }
 
     // getters
@@ -46,12 +48,16 @@ public class Patient implements Writable {
     // setters
     public void setBookedTime(int time) {
         bookedTime = time;
+        EventLog.getInstance().logEvent(
+                new Event("Appointment has been booked"));
     }
 
     // MODIFIES: this
     // EFFECTS: add symptom to list of symptoms
     public void addToSearch(Symptom symptomName) {
         symptoms.add(symptomName);
+        EventLog.getInstance().logEvent(
+                new Event("Added symptom to List of Symptoms"));
     }
 
     // MODIFIES: this
@@ -71,7 +77,10 @@ public class Patient implements Writable {
                 fever = true;
             }
         }
+        EventLog.getInstance().logEvent(
+                new Event("Symptoms have been analyzed"));
         return soreThroat && fever;
+
     }
 
     // getter

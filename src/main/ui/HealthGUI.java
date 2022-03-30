@@ -1,5 +1,7 @@
 package ui;
 
+import model.Event;
+import model.EventLog;
 import model.Symptom;
 import model.Patient;
 import persistence.JsonReader;
@@ -77,6 +79,7 @@ public class HealthGUI extends JFrame {
         buttonPanel.add(new JButton(new Save()));
         buttonPanel.add(new JButton(new VaccinationRecord()));
         buttonPanel.add(new JButton(new Load()));
+        buttonPanel.add(new JButton(new QuitApplication()));
 
         controlPanel.add(buttonPanel, BorderLayout.WEST);
     }
@@ -140,8 +143,8 @@ public class HealthGUI extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent evt) {
-            patient.analyzeSymptoms(patient.getSymptoms());
-            if (true) {
+           // patient.analyzeSymptoms(patient.getSymptoms());
+            if (patient.analyzeSymptoms(patient.getSymptoms()) == true) {
                 String covidBooking = JOptionPane.showInputDialog(null,
                         " You are eligible for a Covid test, Please enter a booking time",
                         "Hour",
@@ -224,7 +227,7 @@ public class HealthGUI extends JFrame {
             str += "Vaccination record: " + patient.getVaccinationRecord() + " doses";
             ImageIcon icon = new ImageIcon("./data/healthrecord.png");
             JOptionPane.showMessageDialog(null, str, "Symptoms",
-                    JOptionPane.PLAIN_MESSAGE,icon);
+                    JOptionPane.PLAIN_MESSAGE, icon);
         }
     }
 
@@ -242,7 +245,24 @@ public class HealthGUI extends JFrame {
                     " How many doses of the Vaccine have you had?",
                     "Doses",
                     JOptionPane.QUESTION_MESSAGE);
-            patient.setBookedTime(Integer.parseInt(doses));
+            patient.updatedVaccinationRecord(Integer.parseInt(doses));
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: quits application and prints logged events
+    private class QuitApplication extends AbstractAction {
+        // EFFECTS: constructor
+        QuitApplication() {
+            super("Quit Application");
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent evt) {
+            for (Event events : EventLog.getInstance()) {
+                System.out.println(events.getDescription());
+            }
+            System.exit(0);
         }
     }
 }

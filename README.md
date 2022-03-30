@@ -26,5 +26,10 @@ As a **patient** you will be able to:
 
 *Code Credit to HairSalon, Teller, andJsonSerializationDemo, and Alarm System*
 
-
-*Link to soure repo: https://github.com/UBCx-Software-Construction/control-and-data-flow-lecture-starters.git*
+**Phase 4: Task 2:**
+Added symptom to List of Symptoms
+Added symptom to List of Symptoms
+Added symptom to List of Symptoms
+Symptoms have been analyzed
+Appointment has been booked
+Vaccination Record has been recorded
