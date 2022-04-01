@@ -261,7 +261,7 @@ public class HealthGUI extends JFrame {
         @Override
         public void actionPerformed(ActionEvent evt) {
             for (Event events : EventLog.getInstance()) {
-                System.out.println(events.getDescription());
+                System.out.println(events.toString());
             }
             System.exit(0);
         }

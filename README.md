@@ -28,9 +28,13 @@ As a **patient** you will be able to:
 
 **Phase 4: Task 2:**
 
+Fri Apr 01 13:56:21 PDT 2022
 Added symptom to List of Symptoms
+Fri Apr 01 13:56:21 PDT 2022
 Added symptom to List of Symptoms
+Fri Apr 01 13:56:21 PDT 2022
 Added symptom to List of Symptoms
+Fri Apr 01 13:56:28 PDT 2022
 Symptoms have been cleared
 
 **Phase 4: Task 3:**
