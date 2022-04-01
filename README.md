@@ -38,4 +38,4 @@ Fri Apr 01 13:56:28 PDT 2022
 Symptoms have been cleared
 
 **Phase 4: Task 3:**
-- I would make CovidTest and DoctorAppoimtment abstract classes that extend a common class
+- I would make CovidTest and DoctorAppoimtment classes extend an abstract class since they have similar methods
