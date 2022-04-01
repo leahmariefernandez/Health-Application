@@ -27,9 +27,11 @@ As a **patient** you will be able to:
 *Code Credit to HairSalon, Teller, andJsonSerializationDemo, and Alarm System*
 
 **Phase 4: Task 2:**
+
 Added symptom to List of Symptoms
 Added symptom to List of Symptoms
 Added symptom to List of Symptoms
-Symptoms have been analyzed
-Appointment has been booked
-Vaccination Record has been recorded
+Symptoms have been cleared
+
+**Phase 4: Task 3:**
+- I would make CovidTest and DoctorAppoimtment abstract classes that extend a common class

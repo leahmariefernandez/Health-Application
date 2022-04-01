@@ -3,7 +3,6 @@ import model.Patient;
 import model.Symptom;
 import org.junit.jupiter.api.Test;
 import persistence.JsonReader;
-import persistence.JsonTest;
 
 import java.io.IOException;
 import java.util.List;
@@ -12,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 // Code credit to JsonSerializationDemo
-public class JsonReaderTest extends JsonTest {
+public class JsonReaderTest extends JsonCheck {
 
     @Test
     void testReaderNonExistentFile() {

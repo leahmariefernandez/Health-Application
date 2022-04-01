@@ -51,6 +51,18 @@ public class PatientTest {
     }
 
     @Test
+    void testClearSymptom() {
+        Symptom symptomA = new Symptom();
+        symptomA.convertSymptomName("cough");
+        testPatient.addToSearch(symptomA);
+        ArrayList<Symptom> symptoms = testPatient.getSymptoms();
+
+
+        testPatient.clearSymptoms();
+        assertEquals(0,symptoms.size());
+    }
+
+    @Test
     void testAnalyzeSymptomWithSoreThroatOnly() {
         Symptom symptomSoreThroat = new Symptom();
         symptomSoreThroat.convertSymptomName("sore throat");

@@ -3,7 +3,6 @@ import model.Symptom;
 //import model.MedicalSearch;
 import org.junit.jupiter.api.Test;
 import persistence.JsonReader;
-import persistence.JsonTest;
 import persistence.JsonWriter;
 
 import java.io.IOException;
@@ -13,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 // Code credit to JsonSerializationDemo
-public class JsonWriterTest extends JsonTest {
+public class JsonWriterTest extends JsonCheck {
 
     @Test
     void testWriterInvalidFile() {

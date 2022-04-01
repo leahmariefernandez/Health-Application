@@ -74,6 +74,7 @@ public class HealthGUI extends JFrame {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(3, 2));
         buttonPanel.add(new JButton(new AddSymptom()));
+        buttonPanel.add(new JButton(new ClearSymptom()));
         buttonPanel.add(new JButton(new MedicalSearch()));
         buttonPanel.add(new JButton(new MedicalRecord()));
         buttonPanel.add(new JButton(new Save()));
@@ -263,6 +264,18 @@ public class HealthGUI extends JFrame {
                 System.out.println(events.getDescription());
             }
             System.exit(0);
+        }
+    }
+
+    private class ClearSymptom extends AbstractAction {
+        // EFFECTS: constructor
+        ClearSymptom() {
+            super("Clear Symptoms");
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent evt) {
+            patient.clearSymptoms();
         }
     }
 }
